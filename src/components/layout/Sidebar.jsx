@@ -1,15 +1,14 @@
-import React from 'react';
 import { Coins, LayoutDashboard, BarChart3, LogOut } from 'lucide-react';
 
-const Sidebar = ({ activeTab, setActiveTab, handleLogout, currency, setCurrency }) => {
-  const CURRENCIES = [
-    { symbol: '$', code: 'USD' },
-    { symbol: '€', code: 'EUR' },
-    { symbol: '₹', code: 'INR' },
-    { symbol: '£', code: 'GBP' },
-    { symbol: '¥', code: 'JPY' },
-  ];
+const CURRENCIES = [
+  { symbol: '$', code: 'USD' },
+  { symbol: '€', code: 'EUR' },
+  { symbol: '₹', code: 'INR' },
+  { symbol: '£', code: 'GBP' },
+  { symbol: '¥', code: 'JPY' },
+];
 
+const Sidebar = ({ activeTab, setActiveTab, handleLogout, currency, setCurrency }) => {
   return (
     <aside className="sidebar">
       <div className="logo">
@@ -34,10 +33,7 @@ const Sidebar = ({ activeTab, setActiveTab, handleLogout, currency, setCurrency 
           <BarChart3 size={20} />
           <span className="nav-text">Analytics</span>
         </div>
-        <div
-          className="nav-item logout-item"
-          onClick={handleLogout}
-        >
+        <div className="nav-item logout-item" onClick={handleLogout}>
           <LogOut size={20} />
           <span className="nav-text">Logout</span>
         </div>
@@ -45,10 +41,7 @@ const Sidebar = ({ activeTab, setActiveTab, handleLogout, currency, setCurrency 
 
       <div className="currency-selector">
         <Coins size={16} />
-        <select
-          value={currency}
-          onChange={(e) => setCurrency(e.target.value)}
-        >
+        <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
           {CURRENCIES.map((c) => (
             <option key={c.code} value={c.symbol}>
               {c.symbol} {c.code}
@@ -56,7 +49,6 @@ const Sidebar = ({ activeTab, setActiveTab, handleLogout, currency, setCurrency 
           ))}
         </select>
       </div>
-
     </aside>
   );
 };

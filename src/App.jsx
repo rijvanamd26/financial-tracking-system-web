@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AuthCard from './components/auth/AuthCard';
 import Sidebar from './components/layout/Sidebar';
+import MobileNav from './components/layout/MobileNav';
 import Header from './components/layout/Header';
 import StatsGrid from './components/dashboard/StatsGrid';
 import TransactionForm from './components/dashboard/TransactionForm';
@@ -194,12 +195,19 @@ function App() {
 
   return (
     <div className="dashboard-layout">
-      <Sidebar 
-        activeTab={activeTab} 
-        setActiveTab={setActiveTab} 
-        handleLogout={handleLogout} 
-        currency={currency} 
-        setCurrency={setCurrency} 
+      <Sidebar
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        handleLogout={handleLogout}
+        currency={currency}
+        setCurrency={setCurrency}
+      />
+      <MobileNav
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+        handleLogout={handleLogout}
+        currency={currency}
+        setCurrency={setCurrency}
       />
 
       <main className="main-content">
