@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar } from 'lucide-react';
 
@@ -52,7 +52,7 @@ const DatePicker = ({ value, onChange }) => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
             className="custom-calendar-popup"
-            style={{ width: '280px', top: 'calc(100% + 0.5rem)' }}
+            style={{ width: '280px', top: 'auto', bottom: 'calc(100% + 0.5rem)' }}
           >
             <div className="calendar-header">
               <button type="button" onClick={() => changeMonth(-1)}>&lt;</button>

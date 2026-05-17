@@ -174,6 +174,15 @@ function App() {
     }
   };
 
+  const handleEdit = async (id, data) => {
+    try {
+      await axios.put(`${API_URL}/transactions/${id}`, data);
+      fetchData();
+    } catch (err) {
+      console.error('Error updating transaction:', err);
+    }
+  };
+
   const formatPrice = (price) => {
     return `${currency}${Math.abs(price).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   };
@@ -229,13 +238,14 @@ function App() {
                 success={success} 
                 CATEGORIES={CATEGORIES} 
               />
-              <TransactionList 
-                transactions={transactions} 
-                filter={filter} 
-                setFilter={setFilter} 
-                loading={loading} 
-                handleDelete={handleDelete} 
-                formatPrice={formatPrice} 
+              <TransactionList
+                transactions={transactions}
+                filter={filter}
+                setFilter={setFilter}
+                loading={loading}
+                handleDelete={handleDelete}
+                handleEdit={handleEdit}
+                formatPrice={formatPrice}
               />
             </div>
           </div>
