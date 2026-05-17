@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Wallet, Trash2, Pencil, Home, ShoppingCart, Activity, Coffee, Car, CreditCard, DollarSign } from 'lucide-react';
+import DatePicker from '../ui/DatePicker';
 
 const CATEGORIES = {
   expense: ['Housing', 'Food', 'Transportation', 'Utilities', 'Insurance', 'Medical', 'Savings', 'Personal', 'Entertainment'],
@@ -163,11 +164,9 @@ const TransactionList = ({ transactions, filter, setFilter, loading, handleDelet
               </div>
               <div className="form-group">
                 <label>Date</label>
-                <input
-                  type="date"
+                <DatePicker
                   value={editData.date}
-                  onChange={(e) => setEditData({ ...editData, date: e.target.value })}
-                  required
+                  onChange={(val) => setEditData({ ...editData, date: val })}
                 />
               </div>
               <div className="dialog-actions" style={{ marginTop: '0.5rem' }}>
