@@ -28,7 +28,7 @@ const CATEGORIES = {
 
 function App() {
   const [activeTab, setActiveTab] = useState('dashboard');
-  const [currency, setCurrency] = useState(() => localStorage.getItem('currency') || '$');
+  const [currency, setCurrency] = useState(() => localStorage.getItem('currency') || '₹');
   const [transactions, setTransactions] = useState([]);
   const [filter, setFilter] = useState('all');
   const [timeRange, setTimeRange] = useState('monthly');
@@ -174,7 +174,7 @@ function App() {
   };
 
   const formatPrice = (price) => {
-    return `${currency}${Math.abs(price).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    return `${currency}${Math.abs(price).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
   };
 
   if (!token) {

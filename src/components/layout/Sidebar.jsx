@@ -20,21 +20,21 @@ const Sidebar = ({ activeTab, setActiveTab, handleLogout, currency, setCurrency 
       </div>
 
       <nav className="nav-links">
-        <div 
+        <div
           className={`nav-item ${activeTab === 'dashboard' ? 'active' : ''}`}
           onClick={() => setActiveTab('dashboard')}
         >
           <LayoutDashboard size={20} />
           <span className="nav-text">Dashboard</span>
         </div>
-        <div 
+        <div
           className={`nav-item ${activeTab === 'analytics' ? 'active' : ''}`}
           onClick={() => setActiveTab('analytics')}
         >
           <BarChart3 size={20} />
           <span className="nav-text">Analytics</span>
         </div>
-        <div 
+        <div
           className="nav-item logout-item"
           onClick={handleLogout}
         >
@@ -43,6 +43,19 @@ const Sidebar = ({ activeTab, setActiveTab, handleLogout, currency, setCurrency 
         </div>
       </nav>
 
+      <div className="currency-selector">
+        <Coins size={16} />
+        <select
+          value={currency}
+          onChange={(e) => setCurrency(e.target.value)}
+        >
+          {CURRENCIES.map((c) => (
+            <option key={c.code} value={c.symbol}>
+              {c.symbol} {c.code}
+            </option>
+          ))}
+        </select>
+      </div>
 
     </aside>
   );
